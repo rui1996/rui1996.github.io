@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://www.icst.pku.edu.cn/course/icb/Projects/Hist-NLM.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Attentive Generative Adversarial Network for Raindrop Removal from A Single Image</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=language content=english><LINK rel=icon type=image/x-icon href="../../../favicon.ico">
+<LINK rel=stylesheet type=text/css href="css/style.css">
+<LINK rel=stylesheet type=text/css href="css/local.css">
+<!-- <base target="_blank"> -->
+<META name=GENERATOR content="MSHTML 9.00.8112.16496">
+</HEAD>
+<BODY>
+<CENTER>
+<DIV id=main>
+<DIV id=pagetitle>Attentive Generative Adversarial Network for Raindrop Removal from A Single Image</DIV><!-- #pagetitle -->
+<DIV id=content>
+<p align="center">submitted to <i>2018 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</i></p>
+<UL>
+  <LI>Rui Qian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+  href="mailto:qianrui@pku.edu.cn"><CODE>qianrui@pku.edu.cn</CODE></A> 
+  <LI>Robby T. Tan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+  href="mailto:tanrobby@gmail.com"><CODE>tanrobby@gmail.com</CODE></A> 
+  <LI>Wenhan Yang&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+  href="mailto:yangwenhan@pku.edu.cn"><CODE>yangwenhan@pku.edu.cn</CODE></A> 
+  <LI>Jiajun Su&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+  href="mailto:sujiajiu@pku.edu.cn"><CODE>sujiajiu@pku.edu.cn</CODE></A> 
+  <LI>Jiaying Liu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+  href="mailto:liujiaying@pku.edu.cn"><CODE>liujiaying@pku.edu.cn</CODE></A></LI></UL>
+  
+  <P>&nbsp;</P>
+  <P>Paper Link:<A href="https://arxiv.org/abs/1711.10098"><FONT color=#000080> https://arxiv.org/abs/1711.10098</FONT></A></P>
+
+
+  <H1><A name=index1h1></A>Introduction</H1>
+	<P>	Raindrops adhered to a glass window or camera lens can severely hamper the visibility of a background scene, and degrade an image considerably. In this paper, we ad- dress the problem by visually removing raindrops, and thus transforming a raindrop degraded image into a clean im- age. The problem is intractable, since first which regions are occluded by raindrops are not given. Second, the infor- mation about the background scene of the occluded regions for most part is completely lost. To resolve the problem, we apply an attentive generative network using the idea of adversarial training. Our main idea is to inject visual atten tion into both the generative and discriminative networks. In the training stage, our visual attention is guided by the locations of raindrop regions. Hence, by injecting this, the generative network will pay more attention to the raindrop regions and their surroundings which are the regions we want to modify; and, the discriminative network will be able to assess the local consistency of the restored regions. To our knowledge, this injection of visual attention to both generative and discriminative networks is novel. Our experiments show the effectiveness of our approach, which outperforms the state of the art methods quantitatively and qualitatively.</p>
+<br>
+<br>
+<br>
+
+<H1><A name=index1h1></A>Network Architecture</H1>
+<tr align="center">
+		<td><img src="figure/network_architecture2.png" alt="" height="240" ></td>
+</tr>
+<CENTER><P><EM>Fig.1 The architecture of our proposed attentive GAN.The generator consists of an attentive-recurrent network and a contextual autoen- coder with skip connections. The discriminator is formed by a series of convolution layers and guided by the attention map.</EM></P></CENTER>
+
+<br>
+<br>
+<br>
+  
+<H1><A name=index2h1></A>Experimental Results</H1>
+<p>The proposed method is implemented by PyTorch on four Nvidia Titan-XP GPUs. 
+We compare our method with Eigen’s method [1],
+Pix2pix-cGAN [2], You.et al.'s video based raindrop removal method [3, 4, 5].</p>
+
+
+<H2>Qualitative Evaluation:</H2> 
+ </br>
+<div align="center">
+  
+	<table border="0" style="background-color:#FAFAFA; FONT-SIZE:12" >
+
+	<tr align="center">
+		<td><img src="figure/cmp1/row_0_col_0.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_0_col_1.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_0_col_2.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_0_col_3.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_0_col_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td><img src="figure/cmp1/row_1_col_0.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_1_col_1.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_1_col_2.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_1_col_3.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_1_col_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td><img src="figure/cmp1/row_2_col_0.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_2_col_1.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_2_col_2.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_2_col_3.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_2_col_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td><img src="figure/cmp1/row_3_col_0.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_3_col_1.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_3_col_2.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_3_col_3.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_3_col_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td><img src="figure/cmp1/row_4_col_0.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_4_col_1.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_4_col_2.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_4_col_3.png" alt="" height="110" ></td>
+		<td><img src="figure/cmp1/row_4_col_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Ground Truth</td>
+		<td>(b)Raindrop Image</td>
+		<td>(c)Eigen [1]</td>
+		<td>(d)Pix2pix [2]</td>
+		<td>(e)Our Method</td>
+	</tr>
+	</table>
+	<br/>
+	<CENTER><P><EM>Fig.2 Results of comparing a few different methods. From left to right: ground truth, raindrop image (input), Eigen13 [1], Pix2Pix [2] and our method. Nearly all raindrops are removed by our method despite the diversity of their colors, shapes and transparency.</EM></P></CENTER>
+</div>
+
+<br>
+
+<div align="center">
+  
+	<table border="0" style="background-color:#FAFAFA; FONT-SIZE:12" >
+
+	<tr align="center">
+		<td><img src="figure/cmp3/row_0_col_0.png" alt="" height="200" ></td>
+		<td><img src="figure/cmp3/row_0_col_1.png" alt="" height="200" ></td>
+		<td><img src="figure/cmp3/row_0_col_2.png" alt="" height="200" ></td>
+	 </tr>
+	 <tr align="center">
+		<td><img src="figure/cmp3/row_1_col_0.png" alt="" height="200" ></td>
+		<td><img src="figure/cmp3/row_1_col_1.png" alt="" height="200" ></td>
+		<td><img src="figure/cmp3/row_1_col_2.png" alt="" height="200" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Pix2pix [2]</td>
+		<td>(c)Our Method</td>
+	</tr>
+	</table>
+	<br/>
+	<CENTER><P><EM>Fig.3 A closer look at the comparison between Pix2Pix’s outputs and ours. 
+	Ours have less artifacts and better restored structures.</EM></P></CENTER>
+</div>
+
+<br>
+<div align="center">
+  
+	<table border="0" style="background-color:#FAFAFA; FONT-SIZE:12" >
+
+	<tr align="center">
+		<td><img src="sup/shaodi3_GT.png" alt="" height="110" ></td>
+		<td><img src="sup/shaodi3_rain.png" alt="" height="110" ></td>
+		<td><img src="sup/shaodi3_13.png" alt="" height="110" ></td>
+		<td><img src="sup/shaodi3_15.png" alt="" height="110" ></td>
+		<td><img src="sup/shaodi3_our.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td><img src="sup/shaodi4_GT.png" alt="" height="125" ></td>
+		<td><img src="sup/shaodi4_rain.png" alt="" height="125" ></td>
+		<td><img src="sup/shaodi4_13.png" alt="" height="125" ></td>
+		<td><img src="sup/shaodi4_15.png" alt="" height="125" ></td>
+		<td><img src="sup/shaodi4_our.png" alt="" height="125" ></td>
+	 </tr>
+	 <tr align="center">
+	 	<td>(a)Ground Truth</td>
+		<td>(b)Raindrop Image</td>
+		<td>(c)You13 [3]</td>
+		<td>(d)You14 [4]</td>
+		<td>(e)Our Method</td>
+	</tr>
+	</table>
+	<br/>
+	<CENTER><P><EM>Fig.4 Comparasion with methods of raindrop removal from video [3, 4] in You.et al.’s dataset [6]. <br>Our method uses a single image, while You.et al.’s [3, 4] use video.</EM></P></CENTER>
+</div>
+
+<br>
+<div align="center">
+  
+	<table border="0" style="background-color:#FAFAFA; FONT-SIZE:12" >
+
+	<tr align="center">
+		<td><img src="sup/shaodi9_1_input.png" alt="" height="150" ></td>
+		<td><img src="sup/shaodi9_2_input.png" alt="" height="150" ></td>
+		<td><img src="sup/shaodi9_3_input.png" alt="" height="150" ></td>
+	 </tr>
+	 <tr align="center">
+	 	<td>(a)Input Squence 1</td>
+		<td>(b)Input Squence 2</td>
+		<td>(c)Input Squence 3</td>
+	</tr>
+	 <tr align="center">
+		<td><img src="sup/shaodi9_1_pami.png" alt="" height="148" ></td>
+		<td><img src="sup/shaodi9_2_pami.png" alt="" height="148" ></td>
+		<td><img src="sup/shaodi9_3_pami.png" alt="" height="148" ></td>
+	 </tr>
+	 <tr align="center">
+	 	<td>(a)You16 [5]</td>
+		<td>(b)You16 [5]</td>
+		<td>(c)You16 [5]</td>
+	</tr>
+	 <tr align="center">
+		<td><img src="sup/shaodi9_1_our.png" alt="" height="150" ></td>
+		<td><img src="sup/shaodi9_2_our.png" alt="" height="150" ></td>
+		<td><img src="sup/shaodi9_3_our.png" alt="" height="150" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Our Method</td>
+		<td>(b)Our Method</td>
+		<td>(c)Our Method</td>
+	</tr>
+	</table>
+	<br/>
+	<CENTER><P><EM>Fig.5 Comparasion with methods of raindrop removal from video [5] in You.et al.’s dataset [6]. Our method uses a single image, while You.et al.’s [5] use video. No ground-truths are provided.</EM></P></CENTER>
+</div>
+
+<br>
+<br>
+
+<H2>Quantitative Evaluation:</H2> 
+<P>	<em>Table 1</em> shows the quantitative comparisons between our method and other existing methods: Eigen13 [1], Pix2Pix [2]. As shown in the table, compared to these two, our PSNR and SSIM values are higher. This indicates that our method can generate results more similar to the groundtruths.
+We also compare our whole attentive GAN with parts of our own network: A (autoencoder alone without the attention map), A+D (non-attentive autoencoder plus non-attentive discriminator), A+AD (non-attentive autoencoder plus attentive discriminator). Note that, our whole attentive GAN can be written as AA+AD (attentive autoencoder plus attentive discriminator). As shown in the evaluation table, AA+AD performs better than the other possible configurations. This is the quantitative evidence that the attentive map is needed by both the generative and discriminative networks.
+</P>
+</br>
+<div align="center">
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-nrw1{font-size:10px;text-align:center;vertical-align:top}
+.tg .tg-3j8g{font-weight:bold;font-size:10px;text-align:center;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 488px">
+<colgroup>
+<col style="width: 70px">
+<col style="width: 70px">
+<col style="width: 70px">
+<col style="width: 70px">
+<col style="width: 70px">
+</colgroup>
+  <tr>
+    <th class="tg-nrw1">Metric\Method</th>
+    <th class="tg-nrw1">Eigen[1]</th>
+    <th class="tg-nrw1">Pix2pix[2]</th>
+    <th class="tg-nrw1">A</th>
+	<th class="tg-nrw1">A+D</th>
+	<th class="tg-nrw1">A+AD</th>
+    <th class="tg-nrw1">Proposed</th>
+  </tr>
+  <tr>
+    <td class="tg-nrw1">PSNR</td>
+    <td class="tg-nrw1">28.59 </td>
+    <td class="tg-nrw1">30.14 </td>
+    <td class="tg-nrw1">29.25 </td>
+	<td class="tg-nrw1">30.88 </td>
+    <td class="tg-nrw1">30.60 </td>
+    <td class="tg-3j8g">31.57 </td>
+  </tr>
+  <tr>
+    <td class="tg-nrw1">SSIM</td>
+    <td class="tg-nrw1">0.6726 </td>
+    <td class="tg-nrw1">0.8299 </td>
+    <td class="tg-nrw1">0.7853 </td>
+	<td class="tg-nrw1">0.8670 </td>
+	<td class="tg-nrw1">0.8710 </td>
+    <td class="tg-3j8g">0.9023 </td>
+  </tr>
+</table>
+<CENTER><P><EM>Table 1. PSNR(dB) and SSIM comparison of results
+from different methods and possible configurations of our network. </EM></P></CENTER>
+</div>
+
+<br>
+<br>
+
+<H2>Visualization of Attention Map:</H2> 
+<p>
+	We show the visualizations of our novel attentive-recurrent network in this part. We set the number of time steps to be 4. With the increasing of time step, our network focuses more and more on the raindrop regions and relevant structures.
+</p>
+<div align="center">
+  
+	<table border="0" style="background-color:#FAFAFA; FONT-SIZE:12" >
+
+	<tr align="center">
+		<td><img src="sup/attention/72_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/72_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/72_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/72_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/72_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	<tr align="center">
+		<td><img src="sup/attention/75_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/75_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/75_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/75_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/75_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	<tr align="center">
+		<td><img src="sup/attention/93_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/93_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/93_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/93_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/93_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	<tr align="center">
+		<td><img src="sup/attention/94_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/94_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/94_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/94_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/94_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	<tr align="center">
+		<td><img src="sup/attention/484_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/484_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/484_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/484_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/484_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	<tr align="center">
+		<td><img src="sup/attention/127_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/127_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/127_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/127_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/127_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	<tr align="center">
+		<td><img src="sup/attention/216_o.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/216_iter_1.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/216_iter_2.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/216_iter_3.png" alt="" height="110" ></td>
+		<td><img src="sup/attention/216_iter_4.png" alt="" height="110" ></td>
+	 </tr>
+	 <tr align="center">
+		<td>(a)Raindrop Image</td>
+		<td>(b)Time Step = 1</td>
+		<td>(c)Time Step = 2</td>
+		<td>(d)Time Step = 3</td>
+		<td>(e)Time Step = 4</td>
+	</tr>
+	</table>
+	<br/>
+	<CENTER><P><EM>Fig.6 Visualization of the attention map generated by our novel attentive-recurrent network. With the increasing of time step, our network focuses more and more on the raindrop regions and relevant structures.</EM></P></CENTER>
+</div>
+
+<br>
+<br>
+
+ <H1><A name=index6h1></A>References</H1>
+
+<P>
+	[1] D. Eigen, D. Krishnan, and R. Fergus. Restoring an image taken through a window covered with dirt or rain. In Proceedings of the IEEE International Conference on Computer Vision, pages 633–640, 2013.
+</P>
+
+<P>
+	[2] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros. Image-to-image translation with conditional adversarial networks. arXiv preprint arXiv:1611.07004, 2016.
+</p>
+
+<P>
+	[3] S. You, R. T. Tan, R. Kawakami, and K. Ikeuchi. Adherent raindrop detection and removal in video. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 1035–1042, 2013.
+</P>
+
+<p>
+	[4] S. You, R. T. Tan, R. Kawakami, Y. Mukaigawa, and K. Ikeuchi. Raindrop detection and removal from long range
+trajectories. In Asian Conference on Computer Vision, pages 569–585. Springer, 2014.
+</p>
+
+<p>
+	[5] S. You, R. T. Tan, R. Kawakami, Y. Mukaigawa, and K. Ikeuchi. Adherent raindrop modeling, detectionand removal in video. IEEE transactions on pattern analysis and machine intelligence, 38(9):1721–1733, 2016.
+</p>
+
+<p>
+	[6] S. You. http://users.cecs.anu.edu.au/ ̃shaodi.you/CVPR2013/Shaodi_CVPR2013.html.
+</p>
+
+<P><A href="https://arxiv.org/abs/1711.10098"><FONT color=#000080>Back to Arxiv Paper Page</FONT></A></P>
+
+
