@@ -2,12 +2,15 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Rui Qian</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:  #ffffff; --text-color:  #333333; --code-block-bg-color: inherit; }
+<title>index</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
 #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.first-line-indent #write p .md-line { text-indent: 0px; }
+.first-line-indent #write li, .first-line-indent #write p, .first-line-indent #write p .md-line:first-child { text-indent: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) { 
@@ -15,31 +18,34 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
+#write > blockquote:first-child, #write > div:first-child, #write > figure:first-child, #write > ol:first-child, #write > p:first-child, #write > pre:first-child, #write > ul:first-child { margin-top: 30px; }
+#write li > figure:first-child { margin-top: -20px; }
+#write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
 h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
+h1, h2, h3, h4, h5, h6 { margin-top: 1rem; margin-bottom: 1rem; }
 p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0px; -webkit-margin-after: 0px; }
 .hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-#write > figure:first-child { margin-top: 16px; }
-figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
@@ -51,56 +57,56 @@ table.md-table td { min-width: 80px; }
 .CodeMirror-lines { padding: 0px; }
 div.hr:focus { cursor: none; }
 pre { white-space: pre-wrap; }
+pre.contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
 .md-fences.mock-cm { white-space: pre-wrap; }
 .show-fences-line-number .md-fences { padding-left: 0px; }
 .show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
 .CodeMirror-line { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+.footnote-line { white-space: pre-wrap; }
 @media print { 
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
+  #write { margin-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
+  @page { margin: 20mm 0px; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
 p > img:only-child { display: block; margin: auto; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+.md-line > .md-image:only-child, p > .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
 p + .mathjax-block { margin-top: -1.143rem; }
 .mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
 .math { font-size: 1rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-content::after, .md-toc::after { display: none; }
 .md-toc-item { display: block; color: rgb(65, 131, 196); }
 .md-toc-item a { text-decoration: none; }
 .md-toc-inner:hover { }
 .md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
 .md-toc-h2 .md-toc-inner { margin-left: 2em; }
 .md-toc-h3 .md-toc-inner { margin-left: 4em; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
@@ -116,21 +122,21 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .footnote-line a:not(.reversefootnote) { color: inherit; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-pre, code, tt { font-family: var(--monospace); }
+code, pre, tt { font-family: var(--monospace); }
 .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
 code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
+a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: monospace; }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
 .MathJax_SVG * { transition: none; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
 [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom-width: 0px; }
 
 
@@ -285,14 +291,13 @@ li>ul {
     margin: 0 0;
 }
 hr {
-    height: 4px;
+    height: 2px;
     padding: 0;
     margin: 16px 0;
     background-color: #e7e7e7;
     border: 0 none;
     overflow: hidden;
     box-sizing: content-box;
-    border-bottom: 1px solid #ddd;
 }
 
 body > h2:first-child {
@@ -347,7 +352,7 @@ ol:last-child {
     margin-bottom: 0;
 }
 blockquote {
-    border-left: 4px solid #dddddd;
+    border-left: 4px solid #dfe2e5;
     padding: 0 15px;
     color: #777777;
 }
@@ -359,23 +364,24 @@ table {
     word-break: initial;
 }
 table tr {
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
-table tr:nth-child(2n) {
+table tr:nth-child(2n),
+thead {
     background-color: #f8f8f8;
 }
 table tr th {
     font-weight: bold;
-    border: 1px solid #cccccc;
+    border: 1px solid #dfe2e5;
     border-bottom: 0;
     text-align: left;
     margin: 0;
     padding: 6px 13px;
 }
 table tr td {
-    border: 1px solid #cccccc;
+    border: 1px solid #dfe2e5;
     text-align: left;
     margin: 0;
     padding: 6px 13px;
@@ -396,7 +402,7 @@ table tr td:last-child {
 .md-fences,
 code,
 tt {
-    border: 1px solid #ddd;
+    border: 1px solid #dfe2e5;
     background-color: #f8f8f8;
     border-radius: 3px;
     padding: 0;
@@ -412,17 +418,9 @@ tt {
     padding-top: 8px;
     padding-bottom: 6px;
 }
-.task-list{
-	padding-left: 0;
-}
 
-.task-list-item {
-	padding-left:32px;
-}
-
-.task-list-item input {
-  top: 3px;
-  left: 8px;
+.md-task-list-item > input {
+  margin-left: -1.3em;
 }
 
 @media screen and (min-width: 914px) {
@@ -479,10 +477,10 @@ tt {
 	top: .285714286rem;
 }
 .md-image>.md-meta {
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
     border-radius: 3px;
     font-family: Consolas, "Liberation Mono", Courier, monospace;
-    padding: 2px 4px 0px 4px;
+    padding: 2px 0px 0px 4px;
     font-size: 0.9em;
     color: inherit;
 }
@@ -539,17 +537,27 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
 
 
+ .typora-export p, .typora-export .footnote-line {white-space: normal;} 
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-mac'><p><img align="left" src="./files/photo.jpg", width="300"> </p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h2><a name='header-n374' class='md-header-anchor '></a>Bio</h2><p>I&#39;m <strong>Rui Qian</strong>(<strong>钱瑞</strong>) and I&#39;m now a final-year undergraduate student majoring in computer science at School of Electronic Engineering and Computer Science at Peking University, Beijing, P.R.China. I&#39;m interested in Computer Vision and Deep Learning, specifically, on deep generative models, semantic scene parsing as well as object detection. <strong>I&#39;m eager to apply for Ph.D this FALL. Please do not hesitate to contact me if you are interested.<a href='./files/cv.pdf'>[CV]</a></strong></p>
-    <h2><a name='header-n51' class='md-header-anchor '></a>Publication</h2><ul><li><p><strong>Rui Qian</strong>, Robby T. Tan, Wenhan Yang, Jiajun Su and Jiaying Liu. &quot;Attentive Generative Adversarial Network for Raindrop Removal from A Single Image&quot;, Accepted by IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018 (<strong>Spotlight</strong>).</p><p><a href='https://arxiv.org/abs/1711.10098'>[Paper Link]</a> <a href='https://rui1996.github.io/raindrop/raindrop_removal.html'>[Project Page]</a> <a href='https://github.com/rui1996/DeRaindrop'>[Code]</a> <a href=''>[Slides]</a>(TBA) <a href=''>[Video]</a>(TBA)</p><p>&nbsp;</p></li></ul><h2><a name='header-n109' class='md-header-anchor '></a>Research Experience</h2><ul><li><p><em>2018.9 -  Current</em>&nbsp;&nbsp;&nbsp;<strong>Research Intern</strong>, <a href='https://www.microsoft.com/en-us/research/group/visual-computing/'>Visual Computing Group</a>, <a href='https://www.microsoft.com/en-us/research/'>Microsoft Research Asia</a></p><p>&nbsp;<strong>Mentor: Dr. <a href='https://www.microsoft.com/en-us/research/people/stevelin/'>Steve Lin</a></strong> ,&nbsp;<strong>Dr. <a href='http://www.jifengdai.org/'>Jifeng Dai</a></strong></p><p>&nbsp;</p></li></ul><ul><li><p><em>2018.6 - 2018.9</em>&nbsp;&nbsp;&nbsp;<strong>Research Intern</strong>, <a href='http://ifp-uiuc.github.io/'>Image Formation and Processing Group</a>, <a href='http://illinois.edu/'>University of Illinois Urbana-Champaign</a></p><p>&nbsp;<strong>Advisor:  Prof. <a href='https://ece.illinois.edu/directory/profile/t-huang1'>Thomas Huang</a></strong></p><p>&nbsp;</p></li></ul><ul><li><p><em>2017.7 - 2017.9</em>&nbsp;&nbsp;&nbsp; <strong>Research Intern</strong>, <a href='https://www.yale-nus.edu.sg/'>Yale-NUS College</a>, <a href='http://www.nus.edu.sg/'>National University of Singapore</a> </p><p><strong>Advisor:  Prof. <a href='http://tanrobby.github.io/'>Robby T.Tan</a></strong></p><p>&nbsp;</p></li></ul><ul><li><p><em>2017.2 - Current</em>&nbsp;&nbsp;&nbsp;<strong>Research Assistant</strong>, <a href='http://www.icst.pku.edu.cn/struct/'>STRUCT,</a>  <a href='http://www.icst.pku.edu.cn/index.php?s=/Home/Index/index/lang/en.html'>Institute of Computer Science and Technology (ICST)</a>, <a href='http://english.pku.edu.cn/'>Peking University</a></p><p><strong>Advisor: Prof. <a href='http://www.icst.pku.edu.cn/struct/people/liujiaying.html'>Jiaying Liu</a></strong></p><p>&nbsp;</p></li></ul><h2><a name='header-n478' class='md-header-anchor '></a>Contact</h2><p><code>qianrui@pku.edu.cn</code></p><p>&nbsp;</p><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-mac'><p><img align="left" src="./files/photo.jpg", width="300"> 
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+</p><h2><a name='header-n3' class='md-header-anchor '></a>Bio</h2><p>I&#39;m <strong>Rui Qian</strong>(<strong>钱瑞</strong>) and I&#39;m now a final-year undergraduate student majoring in computer science at School of Electronic Engineering and Computer Science at Peking University, Beijing, P.R.China. I&#39;m interested in Computer Vision and Deep Learning, specifically, on deep generative models, semantic scene parsing as well as object detection.  <strong>I&#39;m eager to apply for Ph.D this FALL. Contact me if you are interested.<a href='' title='./files/cv.pdf'>[CV]</a></strong></p><p> 
+<p></p>
+</p><h2><a name='header-n8' class='md-header-anchor '></a>Publication</h2><ul><li><p><strong>Rui Qian</strong>, Robby T. Tan, Wenhan Yang, Jiajun Su and Jiaying Liu. &quot;Attentive Generative Adversarial Network for Raindrop Removal from A Single Image&quot;, Accepted by IEEE Conference on Computer Vision and Pattern Recognition (CVPR), June 2018 (<strong>Spotlight</strong>).</p><p><a href='https://arxiv.org/abs/1711.10098'>[Paper Link]</a> <a href='https://rui1996.github.io/raindrop/raindrop_removal.html'>[Project Page]</a> <a href='https://github.com/rui1996/DeRaindrop'>[Code]</a> <a href='http://www.icst.pku.edu.cn/struct/Seminar/Talk_CVPR18_RuiQian/index.html'>[Slides]</a> <a href='http://www.icst.pku.edu.cn/struct/Seminar/Talk_CVPR18_RuiQian/index.html'>[Video]</a></p><p>&nbsp;</p></li><li><p><strong>Rui Qian</strong>, Yunchao Wei, Honghui Shi, Jiachen Li, Jiaying Liu, and Thomas Huang. &quot;Weakly Supervised Scene Parsing with Point-based Distance Metric Learning&quot;, Accepted by AAAI Conference on Artificial Intelligence (AAAI), Honolulu, Hawaii, Jan. 2019.</p><p><a href='https://arxiv.org/abs/1711.10098'>[Paper Link]</a>(TBA)<a href=''>[Code]</a>(TBA)</p></li></ul><p>&nbsp;</p><h2><a name='header-n17' class='md-header-anchor '></a>Research Experience</h2><ul><li><p><em>2018.9 - Current</em>   <strong>Reseacrh Intern</strong>, <a href='https://www.microsoft.com/en-us/research/group/visual-computing/'>Visual Computing Group</a>, <a href='https://www.microsoft.com/en-us/research/'>Microsoft Research Asia</a> <br/></p><p> <strong>Mentor: Dr. <a href='https://www.microsoft.com/en-us/research/people/stevelin/'>Steve Lin</a></strong> , <strong>Dr. <a href='http://www.jifengdai.org/'>Jifeng Dai</a></strong></p><p>&nbsp;</p></li><li><p><em>2018.6 - 2018.9</em>   <strong>Research Intern</strong>, <a href='http://ifp-uiuc.github.io/'>Image Formation and Processing Group</a>, <a href='http://illinois.edu/'>University of Illinois Urbana-Champaign</a></p><p> <strong>Advisor: Prof. <a href='https://ece.illinois.edu/directory/profile/t-huang1'>Thomas Huang</a></strong></p><p>&nbsp;</p></li></ul><ul><li><p><em>2017.7 - 2017.9</em>     <strong>Research Intern</strong>, <a href='https://www.yale-nus.edu.sg/'>Yale-NUS College</a>, <a href='http://www.nus.edu.sg/'>National University of Singapore</a> </p><p><strong>Advisor:  Prof. <a href='http://tanrobby.github.io/'>Robby T.Tan</a></strong></p><p>&nbsp;</p></li></ul><ul><li><p><em>2017.2 - Current</em>   <strong>Research Assistant</strong>, <a href='http://www.icst.pku.edu.cn/struct/'>STRUCT,</a>  <a href='http://www.icst.pku.edu.cn/index.php?s=/Home/Index/index/lang/en.html'>Institute of Computer Science and Technology (ICST)</a>, <a href='http://english.pku.edu.cn/'>Peking University</a></p><p><strong>Advisor: Prof. <a href='http://www.icst.pku.edu.cn/struct/people/liujiaying.html'>Jiaying Liu</a></strong></p><p>&nbsp;</p></li></ul><h2><a name='header-n42' class='md-header-anchor '></a>Contact</h2><p><code>qianrui@pku.edu.cn</code></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
 </body>
 </html>
